@@ -6,7 +6,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node backend/app.js",
-    "dev": "nodemon backend/app.js"
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/app.js",
+    "prod" : "SET NODE_ENV=PRODUCTION& nodemon backend/app.js"
   },
   "author": "Irfan Syafiq",
   "license": "ISC",
