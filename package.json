@@ -1,5 +1,6 @@
 {
   "name": "shopit-hayai",
+  "type": "module",
   "version": "1.0.0",
   "description": "E-commerce website using MERN stack",
   "main": "app.js",
