@@ -18,3 +18,12 @@ export const newProducts = async (req, res) => {
         product
     });
 };
+
+// get single product details => /api/v1/products/:id
+export const getProductDetails = async (req, res) => {
+    const product = await Product.findById(req?.params?.id);
+
+    res.status(200).json({
+        product,
+    });
+};
