@@ -33,3 +33,23 @@ export const getProductDetails = async (req, res) => {
         product,
     });
 };
+
+// update product => /api/v1/products/:id
+export const updateProduct = async (req, res) => {
+    let product = await Product.findById(req?.params?.id); // check if product exists
+
+    if (!product) {
+        return res.status(404).json({
+            message: 'Product not found with this ID',
+        });
+    };
+
+    // product exists, update it
+    product = await Product.findByIdAndUpdate(req?.params?.id, req.body, { 
+        new: true 
+    });
+
+    res.status(200).json({
+        product,
+    });
+};
