@@ -82,7 +82,7 @@ const productSchema = new mongoose.Schema({
     user: { //user who created the product
         type: mongoose.Schema.ObjectId,
         ref: "User",
-        required: true
+        required: false
     },
 },
     { timestamps: true } //created at and updated at
