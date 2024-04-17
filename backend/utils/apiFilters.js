@@ -21,7 +21,7 @@ class APIFilters {
         const queryCopy = { ...this.queryStr };
 
         //fields to exclude
-        const fieldsToRemove = ['keyword']
+        const fieldsToRemove = ['keyword','page']
         fieldsToRemove.forEach((el) => delete queryCopy[el]);
 
 
@@ -32,6 +32,15 @@ class APIFilters {
 
         this.query = this.query.find(JSON.parse(queryStr));
         return this;
+    }
+
+    pagination(resPerPage) {
+        const currentPage = Number(this.queryStr.page) || 1; // default page is 1
+        const skip = resPerPage * (currentPage - 1); // skip the number of products per page
+
+        this.query = this.query.limit(resPerPage).skip(skip);
+        return this;
+
     }
 }
 
