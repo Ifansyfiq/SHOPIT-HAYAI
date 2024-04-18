@@ -24,6 +24,9 @@ export const getProducts = catchAsyncErrors(async (req, res) => {
 
 // create new Product => /api/v1/admin/products
 export const newProducts = catchAsyncErrors(async (req, res) => {
+
+    req.body.user = req.user.id; // user must be admin to create product
+
     const product = await Product.create(req.body)
 
     res.status(200).json({
